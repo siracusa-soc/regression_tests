@@ -2,159 +2,159 @@
 sequential_bare_test:
   dct:
     path: ./sequential_bare_tests/dct
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   fft2:
     path: ./sequential_bare_tests/fft2
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   rijndael:
     path: ./sequential_bare_tests/rijndael
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   jacobi-2d-imper:
     path: ./sequential_bare_tests/jacobi-2d-imper
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   bitDescriptor:
     path: ./sequential_bare_tests/bitDescriptor
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   stencil_vect:
     path: ./sequential_bare_tests/stencil_vect
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   keccak:
     path: ./sequential_bare_tests/keccak
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   fir:
     path: ./sequential_bare_tests/fir
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   stencil:
     path: ./sequential_bare_tests/stencil
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   ipm:
     path: ./sequential_bare_tests/ipm
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   towerofhanoi:
     path: ./sequential_bare_tests/towerofhanoi
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   crc32:
     path: ./sequential_bare_tests/crc32
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   conv2d:
     path: ./sequential_bare_tests/conv2d
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   seidel:
     path: ./sequential_bare_tests/seidel
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   fibonacci:
     path: ./sequential_bare_tests/fibonacci
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   gauss-2d:
     path: ./sequential_bare_tests/gauss-2d
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   aes_cbc:
     path: ./sequential_bare_tests/aes_cbc
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   bubblesort:
     path: ./sequential_bare_tests/bubblesort
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   fdtd-1d:
     path: ./sequential_bare_tests/fdtd-1d
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   jacobi-1d-imper:
     path: ./sequential_bare_tests/jacobi-1d-imper
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   fft:
     path: ./sequential_bare_tests/fft
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
 
 
 parallel_bare_tests:
   parMatrixMul8:
     path: ./parallel_bare_tests/parMatrixMul8 #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   conv16:
     path: ./parallel_bare_tests/conv16 #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   parMatrixMul32:
     path: ./parallel_bare_tests/parMatrixMul32 #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   parWorkload:
     path: ./parallel_bare_tests/parWorkload #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   LU:
     path: ./parallel_bare_tests/LU #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   LU/golden:
     path: ./parallel_bare_tests/LU/golden #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   multicore/stencil:
     path: ./parallel_bare_tests/multicore/stencil #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   dummypar1:
     path: ./parallel_bare_tests/dummypar1 #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   Dijkstra/golden:
     path: ./parallel_bare_tests/Dijkstra/golden
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   Dijkstra:
     path: ./parallel_bare_tests/Dijkstra #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   parMatrixMul:
     path: ./parallel_bare_tests/parMatrixMul #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   parMatrixMul16:
     path: ./parallel_bare_tests/parMatrixMul16 #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
 
 ml_tests:
   mlDotp:
     path: ./ml_tests/mlDotp #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlSchur:
     path: ./ml_tests/mlSchur #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlGemm:
     path: ./ml_tests/mlGemm #ok 
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlSin:
     path: ./ml_tests/mlSin #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlSvd:
     path: ./ml_tests/mlSvd #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlButter:
     path: ./ml_tests/mlButter #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlGradDir:
     path: ./ml_tests/mlGradDir #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlRbf:
     path: ./ml_tests/mlRbf #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlLog:
     path: ./ml_tests/mlLog #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlAxpy:
     path: ./ml_tests/mlAxpy #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlGivens:
     path: ./ml_tests/mlGivens #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlWdotp:
     path: ./ml_tests/mlWdotp #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlDist:
     path: ./ml_tests/mlDist #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlGemv:
     path: ./ml_tests/mlGemv #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlChol:
     path: ./ml_tests/mlChol #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlGrad:
     path: ./ml_tests/mlGrad #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlDct:
     path: ./ml_tests/mlDct #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
 
 riscv_tests:
   testBitManipulation:
@@ -227,70 +227,70 @@ riscv_tests:
 riscv_tests_soc:
   testBitManipulation:
     path: ./riscv_tests_soc/testBitManipulation #OK
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   testVecCmp:
     path: ./riscv_tests_soc/testVecCmp #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   testAddSubNorm:
     path: ./riscv_tests_soc/testAddSubNorm #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   testMisaligned:
     path: ./riscv_tests_soc/testMisaligned #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   testALU:
     path: ./riscv_tests_soc/testALU #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   testMAC3:
     path: ./riscv_tests_soc/testMAC3 #ok 
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   testEventsFlex:
     path: ./riscv_tests_soc/testEventsFlex #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   testVecArith:
     path: ./riscv_tests_soc/testVecArith #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   testDotMul:
     path: ./riscv_tests_soc/testDotMul #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   testVecLogic:
     path: ./riscv_tests_soc/testVecLogic #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   testComplex:
     path: ./riscv_tests_soc/testComplex #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   testCnt:
     path: ./riscv_tests_soc/testCnt #ok 
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   testVecRelat:
     path: ./riscv_tests_soc/testVecRelat #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   testShufflePack:
     path: ./riscv_tests_soc/testShufflePack #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   testMUL:
     path: ./riscv_tests_soc/testMUL #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   testHWLP:
     path: ./riscv_tests_soc/testHWLP #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   testMacNorm:
     path: ./riscv_tests_soc/testMacNorm #ook
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   testDivRem:
     path: ./riscv_tests_soc/testDivRem #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   testVariadic:
     path: ./riscv_tests_soc/testVariadic #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   testMAC:
     path: ./riscv_tests_soc/testMAC #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   testLoadStore:
     path: ./riscv_tests_soc/testLoadStore #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   testALUExt:
     path: ./riscv_tests_soc/testALUExt #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   testBuiltins:
     path: ./riscv_tests_soc/testBuiltins #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug

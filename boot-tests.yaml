@@ -1,9 +1,13 @@
-hellospi:
-  hellospi:
-    path: ./hellospi #ok
-    command: make clean all spiboot=1 run
-hellohyper:
-  hellohyper:
-    path: ./hellohyper #ok
-    command: make clean all hyperboot=1 run
-
+boot_tests:
+  bot_spi_flash:
+    path: ./hello_world #ok
+    command: make clean all bootmode=spi run
+  boot_hyperflash:
+    path: ./hello_world #ok
+    command: make clean all bootmode=hyperflash run
+  boot_jtag:
+    path: ./hello_world #ok
+    command: make clean all bootmode=jtag run
+  fast_virtual_boot:
+    path: ./hello_world #ok
+    command: make clean all bootmode=fast_debug run

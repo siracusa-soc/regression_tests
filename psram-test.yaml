@@ -1,5 +1,4 @@
 psram:
   psram_test:
     path: ./peripherals/psram #ok
-    command: make clean all run
-
+    command: make clean all run vsim_additional_flags=-gUSE_PSRAM_MODEL=1
