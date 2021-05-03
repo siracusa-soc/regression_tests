@@ -17,3 +17,6 @@ peripherals:
   hyperflash:
     path: ./peripherals/hyperflash #ok
     command: make clean all run
+  psram:
+    path: ./peripherals/psram #ok
+    command: make clean all run vsim_additional_flags=-gUSE_PSRAM_MODEL=1

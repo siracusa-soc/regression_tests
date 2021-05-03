@@ -2,38 +2,37 @@
 parallel_bare_tests:
   parMatrixMul8:
     path: ./parallel_bare_tests/parMatrixMul8 #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   conv16:
     path: ./parallel_bare_tests/conv16 #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   parMatrixMul32:
     path: ./parallel_bare_tests/parMatrixMul32 #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   parWorkload:
     path: ./parallel_bare_tests/parWorkload #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   LU:
     path: ./parallel_bare_tests/LU #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   LU/golden:
     path: ./parallel_bare_tests/LU/golden #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   multicore/stencil:
     path: ./parallel_bare_tests/multicore/stencil #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   dummypar1:
     path: ./parallel_bare_tests/dummypar1 #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   Dijkstra/golden:
     path: ./parallel_bare_tests/Dijkstra/golden
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   Dijkstra:
     path: ./parallel_bare_tests/Dijkstra #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   parMatrixMul:
     path: ./parallel_bare_tests/parMatrixMul #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   parMatrixMul16:
     path: ./parallel_bare_tests/parMatrixMul16 #ok
-    command: make clean all run
-
+    command: make clean all run bootmode=fast_debug

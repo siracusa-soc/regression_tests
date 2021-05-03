@@ -2,52 +2,52 @@
 ml_tests:
   mlDotp:
     path: ./ml_tests/mlDotp #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlSchur:
     path: ./ml_tests/mlSchur #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlGemm:
     path: ./ml_tests/mlGemm #ok 
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlSin:
     path: ./ml_tests/mlSin #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlSvd:
     path: ./ml_tests/mlSvd #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlButter:
     path: ./ml_tests/mlButter #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlGradDir:
     path: ./ml_tests/mlGradDir #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlRbf:
     path: ./ml_tests/mlRbf #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlLog:
     path: ./ml_tests/mlLog #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlAxpy:
     path: ./ml_tests/mlAxpy #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlGivens:
     path: ./ml_tests/mlGivens #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlWdotp:
     path: ./ml_tests/mlWdotp #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlDist:
     path: ./ml_tests/mlDist #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlGemv:
     path: ./ml_tests/mlGemv #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlChol:
     path: ./ml_tests/mlChol #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlGrad:
     path: ./ml_tests/mlGrad #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug
   mlDct:
     path: ./ml_tests/mlDct #ok
-    command: make clean all run
+    command: make clean all run bootmode=fast_debug

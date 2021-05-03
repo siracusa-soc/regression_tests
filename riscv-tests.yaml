@@ -2,70 +2,70 @@
 riscv_tests:
   testBitManipulation:
     path: ./riscv_tests/testBitManipulation #OK
-    command: make clean all cluster=1 run
+    command: make clean all cluster=1 run bootmode=fast_debug
   testVecCmp:
     path: ./riscv_tests/testVecCmp #ok
-    command: make clean all cluster=1 run
+    command: make clean all cluster=1 run bootmode=fast_debug
   testAddSubNorm:
     path: ./riscv_tests/testAddSubNorm #ok
-    command: make clean all cluster=1 run
+    command: make clean all cluster=1 run bootmode=fast_debug
   testMisaligned:
     path: ./riscv_tests/testMisaligned #ok
-    command: make clean all cluster=1 run
+    command: make clean all cluster=1 run bootmode=fast_debug
   testALU:
     path: ./riscv_tests/testALU #ok
-    command: make clean all cluster=1 run
+    command: make clean all cluster=1 run bootmode=fast_debug
   testMAC3:
     path: ./riscv_tests/testMAC3 #ok 
-    command: make clean all cluster=1 run
+    command: make clean all cluster=1 run bootmode=fast_debug
   testVecArith:
     path: ./riscv_tests/testVecArith #ok
-    command: make clean all cluster=1 run
+    command: make clean all cluster=1 run bootmode=fast_debug
   testDotMul:
     path: ./riscv_tests/testDotMul #ok
-    command: make clean all cluster=1 run
+    command: make clean all cluster=1 run bootmode=fast_debug
   testVecLogic:
     path: ./riscv_tests/testVecLogic #ok
-    command: make clean all cluster=1 run
+    command: make clean all cluster=1 run bootmode=fast_debug
   testComplex:
     path: ./riscv_tests/testComplex #ok
-    command: make clean all cluster=1 run
+    command: make clean all cluster=1 run bootmode=fast_debug
   testCnt:
     path: ./riscv_tests/testCnt #ok 
-    command: make clean all cluster=1 run
+    command: make clean all cluster=1 run bootmode=fast_debug
   testVecRelat:
     path: ./riscv_tests/testVecRelat #ok
     command: make clean all cluster=r1 run
   testShufflePack:
     path: ./riscv_tests/testShufflePack #ok
-    command: make clean all cluster=1 run
+    command: make clean all cluster=1 run bootmode=fast_debug
   testMUL:
     path: ./riscv_tests/testMUL #ok
-    command: make clean all cluster=1 run
+    command: make clean all cluster=1 run bootmode=fast_debug
   testHWLP:
     path: ./riscv_tests/testHWLP #ok
-    command: make clean all cluster=1 run
+    command: make clean all cluster=1 run bootmode=fast_debug
   testMacNorm:
     path: ./riscv_tests/testMacNorm #ook
-    command: make clean all cluster=1 run
+    command: make clean all cluster=1 run bootmode=fast_debug
   testDivRem:
     path: ./riscv_tests/testDivRem #ok
-    command: make clean all cluster=1 run
+    command: make clean all cluster=1 run bootmode=fast_debug
   testVariadic:
     path: ./riscv_tests/testVariadic #ok
-    command: make clean all cluster=1 run
+    command: make clean all cluster=1 run bootmode=fast_debug
   testMAC:
     path: ./riscv_tests/testMAC #ok
-    command: make clean all cluster=1 run
+    command: make clean all cluster=1 run bootmode=fast_debug
   testLoadStore:
     path: ./riscv_tests/testLoadStore #ok
-    command: make clean all cluster=1 run
+    command: make clean all cluster=1 run bootmode=fast_debug
   testALUExt:
     path: ./riscv_tests/testALUExt #ok
-    command: make clean all cluster=1 run
+    command: make clean all cluster=1 run bootmode=fast_debug
   testBuiltins:
     path: ./riscv_tests/testBuiltins #ok
-    command: make clean all cluster=1 run
+    command: make clean all cluster=1 run bootmode=fast_debug
 
 riscv_tests_soc:
   testBitManipulation:
