@@ -51,8 +51,9 @@ int run_test() {
   uint8_t* actual_y = ne16_streamin;
 
   uint32_t* weight_start_ptr = WEIGHT_MEM_MASE; 
-
-  memcpy(weight_start_ptr,(uint32_t*)ne16_weights,sizeof(ne16_weights)/sizeof(uint32_t)); 
+  printf("Start copying weights to MRAM\n");
+  memcpy(weight_start_ptr,(uint32_t*)ne16_weights,sizeof(ne16_weights)); 
+  printf("Finished copying weights to MRAM\n");
   // enable clock
   NE16_CG_ENABLE();
 
@@ -66,7 +67,7 @@ int run_test() {
   for(volatile int kk=0; kk<10; kk++);
 
   // program NE16
-  NE16_WRITE_REG(NE16_REG_WEIGHTS_PTR,     W);
+  NE16_WRITE_REG(NE16_REG_WEIGHTS_PTR,     NE16_REG_WEIGHTS_PTR);
   NE16_WRITE_REG(NE16_REG_INFEAT_PTR,      x);
   NE16_WRITE_REG(NE16_REG_OUTFEAT_PTR,     actual_y);
   NE16_WRITE_REG(NE16_REG_SCALE_PTR,       nq);
