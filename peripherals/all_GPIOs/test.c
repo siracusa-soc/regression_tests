@@ -20,9 +20,8 @@
 
 #include <stdio.h>
 #include "pulp.h"
-#include "bitfield.h"
-#include "siracusa_pads_functional_regs.h"
 #include "gpio_hal.h"
+#include "siracusa_padctrl.h"
 
 #define SIRACUSA_PADMUX_BASE_ADDR 0x1A140000
 #define SIRACUSA_GPIO_BASE_ADDR 0x1A101000
@@ -55,11 +54,10 @@ uint32_t lfsr(uint32_t input)
 
 uint32_t configure_gpio(uint32_t number, uint32_t direction){
   // Configure padmux to connect gpio to pad
-  uint32_t addr = SIRACUSA_PADMUX_BASE_ADDR + number*8+4; // mux sel registes are separated by one register (the pad config reg)
-  REG_WRITE32(addr, PAD_GPIO_SEL);
+  padctrl_mode_set(number, PAD_MODE_GPIO);
 
   // Now configure the GPIO peripheral
-  addr = SIRACUSA_GPIO_BASE_ADDR + GPIO_GPIO_MODE_0_REG_OFFSET + number/16*4;
+  uint32_t addr = SIRACUSA_GPIO_BASE_ADDR + GPIO_GPIO_MODE_0_REG_OFFSET + number/16*4;
   uint32_t reg = REG_READ32(addr);
   bitfield_field32_t field = GPIO_GPIO_MODE_0_MODE_0_FIELD;
   field.index = number%16*2;
@@ -98,6 +96,20 @@ int main()
   uint32_t out_addr = SIRACUSA_GPIO_BASE_ADDR + GPIO_GPIO_OUT_0_REG_OFFSET;
   uint32_t in_addr = SIRACUSA_GPIO_BASE_ADDR + GPIO_GPIO_IN_0_REG_OFFSET;
   uint32_t gpio_value;
+
+  // TODO remove after debugging
+  siracusa_padctrl_cfg_t pad_config = {
+    .drv_str = DRV_STR_12mA,
+    .pull_cfg = PULL_UP_EN,
+    .ret_en = 1,
+    .rx_en = 0,
+    .tx_en = 1,
+    .shm_trigg_en = 1
+  };
+
+  padctrl_config_set(PAD_GPIO54, &pad_config);
+  padctrl_mode_set(PAD_GPIO54, PAD_MODE_I2C0_SCL);
+  padctrl_mode_set(PAD_GPIO54, PAD_MODE_DISABLED);
 
 
   printf("[%d, %d] Start test\n",  get_cluster_id(), get_core_id());
