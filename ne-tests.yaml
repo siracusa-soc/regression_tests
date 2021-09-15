@@ -1,5 +1,5 @@
 ne_tests:
   28x32_fs3:
-    path: ./ne_tests/28x32_fs3_64 #ok
+    path: ./ne_tests/28x32_fs3_36 #ok
     command: make clean all run bootmode=fast_debug
     
