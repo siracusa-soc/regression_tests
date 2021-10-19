@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-/* 
+/*
  * Mantainer: Luca Valente (luca.valente2@unibo.it)
  */
 
@@ -102,14 +102,13 @@ int main()
     .drv_str = DRV_STR_12mA,
     .pull_cfg = PULL_UP_EN,
     .ret_en = 1,
-    .rx_en = 0,
     .tx_en = 1,
     .shm_trigg_en = 1
   };
 
-  padctrl_config_set(PAD_GPIO54, &pad_config);
-  padctrl_mode_set(PAD_GPIO54, PAD_MODE_I2C0_SCL);
-  padctrl_mode_set(PAD_GPIO54, PAD_MODE_DISABLED);
+  padctrl_config_set(PAD_GPIO32, &pad_config);
+  padctrl_mode_set(PAD_GPIO32, PAD_MODE_I2C0_SCL);
+  padctrl_mode_set(PAD_GPIO32, PAD_MODE_DISABLED);
 
 
   printf("[%d, %d] Start test\n",  get_cluster_id(), get_core_id());
@@ -117,7 +116,7 @@ int main()
   printf("GPIO[i+8] driven by GPIO[i] in Hardware \n");
 
   printf("[PRE-TEST] errors = %0d\n",error);
-  
+
   printf("Set GPIOs[15:8] as input, the remaining as output\n");
   for (int i = 8; i < 16; i++) {
     configure_gpio(i, INPUT);
