@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-/* 
+/*
  * Mantainer: Luca Valente (luca.valente2@unibo.it)
  */
 
 #include <stdio.h>
 #include "pulp.h"
+#include "siracusa_padctrl.h"
 
 #define BUFFER_SIZE 16
 #define UART_BAUDRATE 115200
@@ -54,34 +55,42 @@ int uart_write_nb(int uart_id, void *buffer, uint32_t size)
 
 int main()
 {
+  // Disable cluster to speed up simulation and initialize peripheral domain
+  pll_t cluster_pll = pll_get_handle(PLL_CLUSTER_DOMAIN);
+  pll_set_power(&cluster_pll, 0);
+  pos_freq_domains[PI_FREQ_DOMAIN_PERIPH] = pos_fll_init(POS_FLL_PERIPH);
 
-int error = 0;
-int tx_buffer[BUFFER_SIZE] = {'S','t','a','y',' ','a','t',' ','h','o','m','e','!','!','!','!'};
-int rx_buffer[BUFFER_SIZE];
+  int error = 0;
+  int tx_buffer[BUFFER_SIZE] = {'S','t','a','y',' ','a','t',' ','h','o','m','e','!','!','!','!'};
+  int rx_buffer[BUFFER_SIZE];
 
-for (int u = 0; u < 2; ++u)
-{
-  for (int j = 0; j < BUFFER_SIZE; ++j)
-  {
-    rx_buffer[j] = 0;
-  }
+  // Configure pads 18 & 19 as UART0 TX, RX
+  padctrl_mode_set(PAD_GPIO18, PAD_MODE_UART0_TX);
+  padctrl_mode_set(PAD_GPIO19, PAD_MODE_UART0_RX);
 
-  printf("[%d, %d] Start test uart %d\n",  get_cluster_id(), get_core_id(), u);
-  uart_open(u,UART_BAUDRATE);
-
-  for (int i = 0; i < BUFFER_SIZE; ++i)
-  {
-    uart_write_nb(u,tx_buffer + i,1); //--- non blocking write
-    uart_read(u,rx_buffer + i,1);     //--- blocking read
-    
-    if (tx_buffer[i] == rx_buffer[i])
+  for (int u = 0; u < 1; ++u)
     {
-      printf("PASS: tx %c, rx %c\n", tx_buffer[i],rx_buffer[i]);
-    }else{
-      printf("FAIL: tx %c, rx %c\n", tx_buffer[i],rx_buffer[i]);
-      error++;
+      for (int j = 0; j < BUFFER_SIZE; ++j)
+        {
+          rx_buffer[j] = 0;
+        }
+
+      printf("[%d, %d] Start test uart %d\n",  get_cluster_id(), get_core_id(), u);
+      uart_open(u,UART_BAUDRATE);
+
+      for (int i = 0; i < BUFFER_SIZE; ++i)
+        {
+          uart_write_nb(u,tx_buffer + i,1); //--- non blocking write
+          uart_read(u,rx_buffer + i,1);     //--- blocking read
+
+          if (tx_buffer[i] == rx_buffer[i])
+            {
+              printf("PASS: tx %c, rx %c\n", tx_buffer[i],rx_buffer[i]);
+            }else{
+            printf("FAIL: tx %c, rx %c\n", tx_buffer[i],rx_buffer[i]);
+            error++;
+          }
+        }
     }
-  }
-}
   return error;
 }
