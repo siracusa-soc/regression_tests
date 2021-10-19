@@ -1,7 +1,7 @@
 PULP_APP = test
 PULP_APP_SRCS = test.c
-PULP_CFLAGS=-O3
-uvm_tb = 1
+PULP_CFLAGS = -O2 -g -DSKIP_PLL_INIT
+export uvm_tb = 1
 vsim_additional_flags=+UVM_TESTNAME=siracusa_uart_test +UVM_VERBOSITY=UVM_MEDIUM -optionset UVMDEBUG \
 											+uvm_set_verbosity=uvm_test_top.env.jtag_chain_agent.jtag_agent.monitor*,_ALL_,UVM_LOW,time,0 \
 	                    +uvm_set_verbosity=uvm_test_top.env.jtag_chain_agent.*,_ALL_,UVM_LOW,time,0 \
