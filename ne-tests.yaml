@@ -1,23 +1,26 @@
 ne_tests:
-  ki1_ko1_w1_h1_fs3:
-    path: ./ne_tests/ki1_ko1_w1_h1_fs3 #ok
+  ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3_and_ki28_k32_w6_h6_fs3_mram_sram_simultaneous_fast_buffer:
+    path: ./ne_tests/ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3_and_ki28_k32_w6_h6_fs3_mram_sram_simultaneous_fast_buffer #ok
     command: make clean all run bootmode=fast_debug
-  ki28_32_w6_h6_fs3:
-    path: ./ne_tests/ki28_32_w6_h6_fs3 #ok
-    command: make clean all run bootmode=fast_debug
-  ki1_ko1_w1_h1_fs3_repeated:
-    path: ./ne_tests/ki1_ko1_w1_h1_fs3_repeated #ok
-    command: make clean all run bootmode=fast_debug
-  ki35_ko36_h7_w8_ns1_nb1_qw3_fs1_st0_repeated:
-    path: ./ne_tests/ki35_ko36_h7_w8_ns1_nb1_qw3_fs1_st0_repeated #ok
-    command: make clean all run bootmode=fast_debug
-  ki36_ko36_h7_w9_ns1_nb1_qw3_fs3_dw1:
-    path: ./ne_tests/ki36_ko36_h7_w9_ns1_nb1_qw3_fs3_dw1 #ok
-    command: make clean all run bootmode=fast_debug
-  ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3:
-    path: ./ne_tests/ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3 #ok
-    command: make clean all run bootmode=fast_debug
-  ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3_repeated:
-    path: ./ne_tests/ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3_repeated #ok
-    command: make clean all run bootmode=fast_debug
+  # ki1_ko1_w1_h1_fs3:
+  #   path: ./ne_tests/ki1_ko1_w1_h1_fs3 #ok
+  #   command: make clean all run bootmode=fast_debug
+  # ki28_32_w6_h6_fs3:
+  #   path: ./ne_tests/ki28_32_w6_h6_fs3 #ok
+  #   command: make clean all run bootmode=fast_debug
+  # ki1_ko1_w1_h1_fs3_repeated:
+  #   path: ./ne_tests/ki1_ko1_w1_h1_fs3_repeated #ok
+  #   command: make clean all run bootmode=fast_debug
+  # ki35_ko36_h7_w8_ns1_nb1_qw3_fs1_st0_repeated:
+  #   path: ./ne_tests/ki35_ko36_h7_w8_ns1_nb1_qw3_fs1_st0_repeated #ok
+  #   command: make clean all run bootmode=fast_debug
+  # ki36_ko36_h7_w9_ns1_nb1_qw3_fs3_dw1:
+  #   path: ./ne_tests/ki36_ko36_h7_w9_ns1_nb1_qw3_fs3_dw1 #ok
+  #   command: make clean all run bootmode=fast_debug
+  # ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3:
+  #   path: ./ne_tests/ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3 #ok
+  #   command: make clean all run bootmode=fast_debug
+  # ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3_repeated:
+  #   path: ./ne_tests/ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3_repeated #ok
+  #   command: make clean all run bootmode=fast_debug
     
