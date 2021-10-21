@@ -53,9 +53,6 @@ int main()
     pulp_write32(ARCHI_UDMA_ADDR + CAM_BASE_ADDR + UDMA_CPI_CAM_CFG_LL_OFFSET, 0x00000000);
 
 
-
-  for (int f = 0; f < 4; ++f)
-  {
     // run the actual test
     printf("CPI TEST START");
     // configure the uDMA chnnel related registers (manual enqueue)
@@ -70,19 +67,11 @@ int main()
     pulp_write32(ARCHI_UDMA_ADDR + CAM_BASE_ADDR + UDMA_CPI_CAM_CFG_GLOB_OFFSET, (1 << 31) + (0b110 << 8));
     pulp_write32(ARCHI_UDMA_ADDR + CAM_BASE_ADDR + UDMA_CPI_CAM_CFG_SIZE_OFFSET, FRAME_LINES);
 
-    for (volatile int i = 0; i < 500; ++i)
+    // consider replacing with proper interrupt based wait
+    for (volatile int i = 0; i < 5000; ++i)
     {
       i++;
     }
-
-    while(pulp_read32(ARCHI_UDMA_ADDR + CAM_BASE_ADDR + UDMA_CPI_CAM_RX_SIZE_OFFSET) > 0){    
-      // Busy wait polling
-      for (volatile int i = 0; i < 100; ++i)
-      {
-        i++;
-      }
-    }
-  }
 
 
   // *(int*)(0x1A102000) = 0xAABBCCDD;
