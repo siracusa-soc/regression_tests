@@ -38,7 +38,7 @@
 #define NB_ITER 10
 
 static int glob_errors;
-
+#define WEIGHT_MEM_MASE 0x10400000
 int run_test() {
 
   uint8_t* x        = ne16_infeat;
@@ -49,7 +49,12 @@ int run_test() {
   uint8_t* golden_y = ne16_outfeat;
   uint8_t* actual_y = ne16_streamin;
   
-  memcpy(0x20400000, ne16_weights, STIM_W_SIZE);
+  // memcpy(0x20400000, ne16_weights, STIM_W_SIZE);
+
+  uint32_t* weight_start_ptr = WEIGHT_MEM_MASE; 
+  printf("Start copying weights to MRAM\n");
+  memcpy(weight_start_ptr,(uint32_t*)ne16_weights,sizeof(ne16_weights)); 
+  printf("Finished copying weights to MRAM\n");
 
   // enable clock
   NE16_CG_ENABLE();
@@ -67,7 +72,7 @@ int run_test() {
 
   // job 0
   NE16_BARRIER_ACQUIRE(job_id);
-  NE16_WRITE_REG(NE16_REG_WEIGHTS_PTR,     0);
+  NE16_WRITE_REG(NE16_REG_WEIGHTS_PTR,     NE16_REG_WEIGHTS_PTR);
   NE16_WRITE_REG(NE16_REG_INFEAT_PTR,      x);
   NE16_WRITE_REG(NE16_REG_OUTFEAT_PTR,     actual_y);
   NE16_WRITE_REG(NE16_REG_SCALE_PTR,       nq);

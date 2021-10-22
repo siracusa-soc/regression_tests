@@ -48,8 +48,9 @@ int run_test() {
   uint8_t* nqb      = ne16_scale_bias;
   uint8_t* golden_y = ne16_outfeat;
   uint8_t* actual_y = ne16_streamin;
-  
+  printf("Start copying weights to MRAM\n");
   memcpy(0x20400000, ne16_weights, STIM_W_SIZE);
+  printf("Finished copying weights to MRAM\n");
 
   // enable clock
   NE16_CG_ENABLE();
@@ -111,7 +112,9 @@ int run_test() {
 
   // disable clock
   NE16_CG_DISABLE();
-
+  printf("Start copying weights to MRAM 2\n");
+  memcpy(0x20400000, ne16_weights, STIM_W_SIZE);
+  printf("Finished copying weights to MRAM 2\n");
   // printf("%d cycles\n", pi_perf_read(PI_PERF_CYCLES));
 
   int errors = ne16_compare_int(actual_y, golden_y, STIM_Y_SIZE/4);
