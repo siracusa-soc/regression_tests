@@ -48,9 +48,9 @@ int run_test() {
   uint8_t* nqb      = ne16_scale_bias;
   uint8_t* golden_y = ne16_outfeat;
   uint8_t* actual_y = ne16_streamin;
-  printf("Start copying weights to MRAM\n");
+  // printf("Start copying weights to MRAM\n");
   memcpy(0x20400000, ne16_weights, STIM_W_SIZE);
-  printf("Finished copying weights to MRAM\n");
+  // printf("Finished copying weights to MRAM\n");
 
   // enable clock
   NE16_CG_ENABLE();
@@ -80,7 +80,7 @@ int run_test() {
   NE16_WRITE_CMD(NE16_COMMIT_AND_TRIGGER, NE16_TRIGGER_CMD);
 
   // job 1
-  /*
+  // /*
   NE16_BARRIER_ACQUIRE(job_id);
   NE16_WRITE_REG(NE16_REG_WEIGHTS_PTR,     0);
   NE16_WRITE_REG(NE16_REG_INFEAT_PTR,      x);
@@ -99,7 +99,7 @@ int run_test() {
     printf("Job ID is=%d\n",job_id);
     NE16_WRITE_CMD(NE16_COMMIT_AND_TRIGGER, NE16_TRIGGER_CMD);
   } while(job_id < 5);
-  */
+  // */
 
   // start perf counter
   // pi_perf_start();
@@ -112,9 +112,9 @@ int run_test() {
 
   // disable clock
   NE16_CG_DISABLE();
-  printf("Start copying weights to MRAM 2\n");
-  memcpy(0x20400000, ne16_weights, STIM_W_SIZE);
-  printf("Finished copying weights to MRAM 2\n");
+  // printf("Start copying weights to MRAM 2\n");
+  // memcpy(0x20400000, ne16_weights, STIM_W_SIZE);
+  // printf("Finished copying weights to MRAM 2\n");
   // printf("%d cycles\n", pi_perf_read(PI_PERF_CYCLES));
 
   int errors = ne16_compare_int(actual_y, golden_y, STIM_Y_SIZE/4);
@@ -123,13 +123,13 @@ int run_test() {
 
 int main() {
   
-  if (rt_cluster_id() != 0) {
-    return bench_cluster_forward(0);
-  }
+  // if (rt_cluster_id() != 0) {
+  //   return bench_cluster_forward(0);
+  // }
 
-  int ret = -1;
-  if(rt_core_id() == 0) {
-    printf("HELLO\n");
+  // int ret = -1;
+  // if(rt_core_id() == 0) {
+  //   printf("HELLO\n");
     return run_test();
-  }
+  // }
 }

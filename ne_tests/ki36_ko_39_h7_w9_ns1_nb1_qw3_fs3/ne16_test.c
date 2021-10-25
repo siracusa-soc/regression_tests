@@ -52,9 +52,9 @@ int run_test() {
   // memcpy(0x20400000, ne16_weights, STIM_W_SIZE);
 
   uint32_t* weight_start_ptr = WEIGHT_MEM_MASE; 
-  printf("Start copying weights to MRAM\n");
+  // printf("Start copying weights to MRAM\n");
   memcpy(weight_start_ptr,(uint32_t*)ne16_weights,sizeof(ne16_weights)); 
-  printf("Finished copying weights to MRAM\n");
+  // printf("Finished copying weights to MRAM\n");
 
   // enable clock
   NE16_CG_ENABLE();
@@ -102,13 +102,13 @@ int run_test() {
 
 int main() {
   
-  if (rt_cluster_id() != 0) {
-    return bench_cluster_forward(0);
-  }
+  // if (rt_cluster_id() != 0) {
+  //   return bench_cluster_forward(0);
+  // }
 
-  int ret = -1;
-  if(rt_core_id() == 0) {
-    printf("HELLO\n");
+  // int ret = -1;
+  // if(rt_core_id() == 0) {
+  //   printf("HELLO\n");
     return run_test();
-  }
+  // }
 }

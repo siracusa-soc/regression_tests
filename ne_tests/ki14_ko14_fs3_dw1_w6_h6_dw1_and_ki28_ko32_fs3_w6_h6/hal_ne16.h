@@ -26,8 +26,8 @@
 /* REGISTER MAP */
 
 // global address map + event IDs
-#define NE16_ADDR_BASE      0x00201000
-#define CLUS_CTRL_ADDR_BASE 0x00200000
+#define NE16_ADDR_BASE      0x10201000
+#define CLUS_CTRL_ADDR_BASE 0x10200000
 #define NE16_EVT0           12
 #define NE16_EVT1           13
 

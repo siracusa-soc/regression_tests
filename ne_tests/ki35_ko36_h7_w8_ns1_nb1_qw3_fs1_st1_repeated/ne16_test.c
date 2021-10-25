@@ -95,7 +95,7 @@ int run_test() {
   // job 2-257
   do {
     NE16_BARRIER_ACQUIRE(job_id);
-    printf("Job ID is=%d\n",job_id);
+    // printf("Job ID is=%d\n",job_id);
     NE16_WRITE_CMD(NE16_COMMIT_AND_TRIGGER, NE16_TRIGGER_CMD);
   } while(job_id < 5);
 
@@ -120,13 +120,13 @@ int run_test() {
 
 int main() {
   
-  if (rt_cluster_id() != 0) {
-    return bench_cluster_forward(0);
-  }
+  // if (rt_cluster_id() != 0) {
+  //   return bench_cluster_forward(0);
+  // }
 
-  int ret = -1;
-  if(rt_core_id() == 0) {
-    printf("HELLO\n");
+  // int ret = -1;
+  // if(rt_core_id() == 0) {
+  //   printf("HELLO\n");
     return run_test();
-  }
+  // }
 }

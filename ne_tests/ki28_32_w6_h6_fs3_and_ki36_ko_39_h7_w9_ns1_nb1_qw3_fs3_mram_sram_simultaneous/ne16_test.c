@@ -69,9 +69,9 @@ int run_test() {
   uint8_t* actual_y2 = ne16_streamin2;
 
   uint32_t* weight_start_ptr = WEIGHT_MEM_BASE+MRAM_OFFSET; 
-  printf("Start copying weights to MRAM\n");
+  // printf("Start copying weights to MRAM\n");
   memcpy(weight_start_ptr,(uint32_t*)ne16_weights,sizeof(ne16_weights)); 
-  printf("Finished copying weights to MRAM\n");
+  // printf("Finished copying weights to MRAM\n");
 
   // weight_start_ptr = WEIGHT_MEM_BASE+SRAM_OFFSET; 
   // printf("Start copying weights to SRAM\n");
@@ -105,9 +105,9 @@ int run_test() {
   }
   NE16_WRITE_CMD(NE16_COMMIT_AND_TRIGGER, NE16_TRIGGER_CMD);
   weight_start_ptr = WEIGHT_MEM_BASE+SRAM_OFFSET; 
-  printf("Start copying weights to SRAM\n");
+  // printf("Start copying weights to SRAM\n");
   memcpy(weight_start_ptr,(uint32_t*)ne16_weights2,sizeof(ne16_weights2)); 
-  printf("Finished copying weights to SRAM\n");
+  // printf("Finished copying weights to SRAM\n");
   
   NE16_BARRIER_ACQUIRE(job_id);
   NE16_WRITE_REG(NE16_REG_WEIGHTS_PTR,     NE16_REG_WEIGHTS_PTR+SRAM_OFFSET);
@@ -135,7 +135,7 @@ int main() {
 
   // int ret = -1;
   // if(rt_core_id() == 0) {
-    printf("HELLO\n");
+    // printf("HELLO\n");
     return run_test();
   // }
 }

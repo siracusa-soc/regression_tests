@@ -135,7 +135,7 @@ int main() {
 
   // int ret = -1;
   // if(rt_core_id() == 0) {
-    printf("HELLO\n");
+    // printf("HELLO\n");
     return run_test();
   // }
 }

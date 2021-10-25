@@ -1,6 +1,6 @@
 #define STIM_Y_SIZE 8064
 // outfeat [7 x 8 x 36]
-uint32_t __attribute__((section(".heapsram"))) ne16_outfeat[] = {
+uint32_t __attribute__((section(".heapl2ram"))) ne16_outfeat[] = {
   0x00000e89,
   0x00000009,
   0xffffffa8,

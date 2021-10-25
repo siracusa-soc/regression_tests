@@ -69,20 +69,20 @@ int run_test() {
   uint8_t* actual_y2 = ne16_streamin2;
 
   uint32_t* weight_start_ptr = WEIGHT_MEM_BASE+MRAM_OFFSET; 
-  printf("Start copying weights to MRAM\n");
+  // printf("Start copying weights to MRAM\n");
   memcpy(weight_start_ptr,(uint32_t*)ne16_weights,sizeof(ne16_weights)); 
-  printf("Finished copying weights to MRAM\n");
+  // printf("Finished copying weights to MRAM\n");
 
-  weight_start_ptr = WEIGHT_MEM_BASE+SRAM_OFFSET; 
-  printf("Start copying weights to SRAM\n");
-  memcpy(weight_start_ptr,(uint32_t*)ne16_weights2,sizeof(ne16_weights2)); 
-  printf("Finished copying weights to SRAM\n");
+  // weight_start_ptr = WEIGHT_MEM_BASE+SRAM_OFFSET; 
+  // // printf("Start copying weights to SRAM\n");
+  // memcpy(weight_start_ptr,(uint32_t*)ne16_weights2,sizeof(ne16_weights2)); 
+  // printf("Finished copying weights to SRAM\n");
   // enable clock
   int prev_errors1=0;
   int prev_errors2=0;
-  prev_errors1=ne16_compare_int(actual_y, golden_y, STIM_Y_SIZE/4);
-  prev_errors2=ne16_compare_int(actual_y2, golden_y2, STIM_Y_SIZE2/4);
-  printf("Prev Errors1=%d, prev_errors2=%d\n", prev_errors1,prev_errors2);
+  // prev_errors1=ne16_compare_int(actual_y, golden_y, STIM_Y_SIZE/4);
+  // prev_errors2=ne16_compare_int(actual_y2, golden_y2, STIM_Y_SIZE2/4);
+  // printf("Prev Errors1=%d, prev_errors2=%d\n", prev_errors1,prev_errors2);
 
   NE16_CG_ENABLE();
 
@@ -110,7 +110,9 @@ int run_test() {
     NE16_WRITE_REG(i*4, ne16_cfg[i]);
   }
   NE16_WRITE_CMD(NE16_COMMIT_AND_TRIGGER, NE16_TRIGGER_CMD);
-  
+  weight_start_ptr = WEIGHT_MEM_BASE+SRAM_OFFSET; 
+  // printf("Start copying weights to SRAM\n");
+  memcpy(weight_start_ptr,(uint32_t*)ne16_weights2,sizeof(ne16_weights2)); 
   NE16_BARRIER_ACQUIRE(job_id);
   NE16_WRITE_REG(NE16_REG_WEIGHTS_PTR,     NE16_REG_WEIGHTS_PTR+SRAM_OFFSET);
   NE16_WRITE_REG(NE16_REG_INFEAT_PTR,      x2);
@@ -132,12 +134,12 @@ int run_test() {
 
 int main() {
   
-  if (rt_cluster_id() != 0)
-    return bench_cluster_forward(0);
+  // if (rt_cluster_id() != 0)
+  //   return bench_cluster_forward(0);
 
-  int ret = -1;
-  if(rt_core_id() == 0) {
-    printf("HELLO\n");
+  // int ret = -1;
+  // if(rt_core_id() == 0) {
+    // printf("HELLO\n");
     return run_test();
-  }
+  // }
 }

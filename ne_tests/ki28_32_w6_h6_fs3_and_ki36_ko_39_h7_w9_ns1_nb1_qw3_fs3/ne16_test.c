@@ -69,14 +69,14 @@ int run_test() {
   uint8_t* actual_y2 = ne16_streamin2;
 
   uint32_t* weight_start_ptr = WEIGHT_MEM_BASE+MRAM_OFFSET; 
-  printf("Start copying weights to MRAM\n");
+  // printf("Start copying weights to MRAM\n");
   memcpy(weight_start_ptr,(uint32_t*)ne16_weights,sizeof(ne16_weights)); 
-  printf("Finished copying weights to MRAM\n");
+  // printf("Finished copying weights to MRAM\n");
 
   weight_start_ptr = WEIGHT_MEM_BASE+SRAM_OFFSET; 
-  printf("Start copying weights to SRAM\n");
+  // printf("Start copying weights to SRAM\n");
   memcpy(weight_start_ptr,(uint32_t*)ne16_weights2,sizeof(ne16_weights2)); 
-  printf("Finished copying weights to SRAM\n");
+  // printf("Finished copying weights to SRAM\n");
   // enable clock
   NE16_CG_ENABLE();
 

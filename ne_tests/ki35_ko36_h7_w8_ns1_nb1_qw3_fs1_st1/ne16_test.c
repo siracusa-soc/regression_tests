@@ -120,13 +120,13 @@ int run_test() {
 
 int main() {
   
-  if (rt_cluster_id() != 0) {
-    return bench_cluster_forward(0);
-  }
+  // if (rt_cluster_id() != 0) {
+  //   return bench_cluster_forward(0);
+  // }
 
-  int ret = -1;
-  if(rt_core_id() == 0) {
-    printf("HELLO\n");
+  // int ret = -1;
+  // if(rt_core_id() == 0) {
+  //   printf("HELLO\n");
     return run_test();
-  }
+  // }
 }

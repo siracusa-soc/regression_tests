@@ -1,6 +1,6 @@
 #define STIM_W_SIZE 2304
 // weights [36 x 2 x 8 x 4]
-uint8_t __attribute__((section(".heapsram"))) ne16_weights[] = {
+uint8_t __attribute__((section(".heapl2ram"))) ne16_weights[] = {
   0xdd,
   0x02,
   0x00,

@@ -26,8 +26,8 @@
 /* REGISTER MAP */
 
 // global address map + event IDs
-#define NE16_ADDR_BASE      0x00201000
-#define CLUS_CTRL_ADDR_BASE 0x00200000
+#define NE16_ADDR_BASE      0x10201000
+#define CLUS_CTRL_ADDR_BASE 0x10200000
 #define NE16_EVT0           12
 #define NE16_EVT1           13
 
@@ -235,7 +235,7 @@ int ne16_compare_int(uint32_t *actual_y, uint32_t *golden_y, int len) {
     int error = (int) (actual_word != golden_word);
     errors += (int) (actual_word != golden_word);
 #ifndef NVERBOSE
-    printf("  0x%08x <- 0x%08x @ 0x%08x @ 0x%08x\n", golden_word, actual_word, (actual_y+i), i*4);
+    // printf("  0x%08x <- 0x%08x @ 0x%08x @ 0x%08x\n", golden_word, actual_word, (actual_y+i), i*4);
     if(error) {
       if(errors==1) printf("  golden     <- actual     @ address    @ index\n");
       printf("  0x%08x <- 0x%08x @ 0x%08x @ 0x%08x\n", golden_word, actual_word, (actual_y+i), i*4);
