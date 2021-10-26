@@ -1,0 +1,116 @@
+<?xml version="1.0" ?>
+<testsuites disabled="0" errors="0" failures="0" tests="2" time="6.219510316848755">
+	<testsuite disabled="0" errors="0" failures="0" name="bwruntests" skipped="0" tests="2" time="6.219510316848755">
+		<testcase name="parallel_matmul_tests:matmul_32b_int" time="3.103832" classname="parallel_matmul_tests">
+			<system-out>Flags : -O3  -DNB_RUN=1  
+make[1]: Entering directory `/home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/siracusa_tests/matmul_32b_int'
+RM  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/siracusa_tests/matmul_32b_int/build
+CC  test.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/kernel/chips/siracusa/pll.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/kernel/chips/siracusa/soc.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/lib/libc/minimal/io.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/lib/libc/minimal/fprintf.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/lib/libc/minimal/prf.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/lib/libc/minimal/sprintf.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/kernel/init.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/kernel/kernel.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/kernel/alloc.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/kernel/alloc_pool.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/kernel/irq.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/kernel/soc_event.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/kernel/bench.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/drivers/uart.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/kernel/cluster.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/kernel/crt0.S
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/kernel/irq_asm.S
+LD  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/siracusa_tests/matmul_32b_int/build/test/test
+/home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/bin/stim_utils.py --binary=/home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/siracusa_tests/matmul_32b_int/build/test/test --vectors=/home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/siracusa_tests/matmul_32b_int/build/vectors/stim.txt
+Created stimuli generator
+  Added binary: /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/siracusa_tests/matmul_32b_int/build/test/test
+  Handling section (base: 0x10000004, size: 0x1004)
+  Handling section (base: 0x1c000004, size: 0xa0)
+  Init section to 0 (base: 0x1c0000a4, size: 0x834)
+  Handling section (base: 0x1c008000, size: 0x1e9c)
+  Generating to file: /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/siracusa_tests/matmul_32b_int/build/vectors/stim.txt
+/home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/bin/plp_mkflash  --flash-boot-binary=/home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/siracusa_tests/matmul_32b_int/build/test/test  --stimuli=/home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/siracusa_tests/matmul_32b_int/build/vectors/qspi_stim.slm --flash-type=spi --qpi
+/home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/bin/slm_hyper.py  --input=/home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/siracusa_tests/matmul_32b_int/build/vectors/qspi_stim.slm  --output=/home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/siracusa_tests/matmul_32b_int/build/vectors/hyper_stim.slm
+make dis &gt; disas.txt
+make[1]: Leaving directory `/home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/siracusa_tests/matmul_32b_int'
+</system-out>
+			<system-err>test.c: In function 'main':
+test.c:176:22: warning: passing argument 1 of 'checkInt' from incompatible pointer type [-Wincompatible-pointer-types]
+     error = checkInt(matC, exp_res, N*M);
+                      ^~~~
+test.c:31:5: note: expected 'int *' but argument is of type 'int32_t * {aka long int *}'
+ int checkInt (int *B, int *A, int n)
+     ^~~~~~~~
+test.c:176:28: warning: passing argument 2 of 'checkInt' from incompatible pointer type [-Wincompatible-pointer-types]
+     error = checkInt(matC, exp_res, N*M);
+                            ^~~~~~~
+test.c:31:5: note: expected 'int *' but argument is of type 'int32_t * {aka long int *}'
+ int checkInt (int *B, int *A, int n)
+     ^~~~~~~~
+</system-err>
+		</testcase>
+		<testcase name="parallel_matmul_tests:matmul_32b_float" time="3.115678" classname="parallel_matmul_tests">
+			<system-out>Flags : -O3  -DNB_RUN=1  
+make[1]: Entering directory `/home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/siracusa_tests/matmul_32b_float'
+RM  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/siracusa_tests/matmul_32b_float/build
+CC  test.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/kernel/chips/siracusa/pll.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/kernel/chips/siracusa/soc.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/lib/libc/minimal/io.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/lib/libc/minimal/fprintf.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/lib/libc/minimal/prf.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/lib/libc/minimal/sprintf.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/kernel/init.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/kernel/kernel.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/kernel/alloc.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/kernel/alloc_pool.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/kernel/irq.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/kernel/soc_event.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/kernel/bench.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/drivers/uart.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/kernel/cluster.c
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/kernel/crt0.S
+CC  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/kernel/irq_asm.S
+LD  /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/siracusa_tests/matmul_32b_float/build/test/test
+/home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/bin/stim_utils.py --binary=/home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/siracusa_tests/matmul_32b_float/build/test/test --vectors=/home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/siracusa_tests/matmul_32b_float/build/vectors/stim.txt
+Created stimuli generator
+  Added binary: /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/siracusa_tests/matmul_32b_float/build/test/test
+  Handling section (base: 0x10000004, size: 0x1004)
+  Handling section (base: 0x1c000004, size: 0xa0)
+  Init section to 0 (base: 0x1c0000a4, size: 0x834)
+  Handling section (base: 0x1c008000, size: 0x1e8c)
+  Generating to file: /home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/siracusa_tests/matmul_32b_float/build/vectors/stim.txt
+/home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/bin/plp_mkflash  --flash-boot-binary=/home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/siracusa_tests/matmul_32b_float/build/test/test  --stimuli=/home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/siracusa_tests/matmul_32b_float/build/vectors/qspi_stim.slm --flash-type=spi --qpi
+/home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/pulp-runtime/bin/slm_hyper.py  --input=/home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/siracusa_tests/matmul_32b_float/build/vectors/qspi_stim.slm  --output=/home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/siracusa_tests/matmul_32b_float/build/vectors/hyper_stim.slm
+make dis &gt; disas.txt
+make[1]: Leaving directory `/home/adimauro/2021_projects/siracusa/deliverables/siracusa-fe/siracusa_tests/matmul_32b_float'
+</system-out>
+			<system-err>test.c: In function 'main':
+test.c:87:14: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+   float *A = matA;
+              ^~~~
+test.c:88:14: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+   float *B = matB;
+              ^~~~
+test.c:89:14: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+   float *C = matC;
+              ^~~~
+test.c:169:22: warning: passing argument 1 of 'checkInt' from incompatible pointer type [-Wincompatible-pointer-types]
+     error = checkInt(matC, exp_res, N*M);
+                      ^~~~
+test.c:27:5: note: expected 'int *' but argument is of type 'int32_t * {aka long int *}'
+ int checkInt (int *B, int *A, int n)
+     ^~~~~~~~
+test.c:169:28: warning: passing argument 2 of 'checkInt' from incompatible pointer type [-Wincompatible-pointer-types]
+     error = checkInt(matC, exp_res, N*M);
+                            ^~~~~~~
+test.c:27:5: note: expected 'int *' but argument is of type 'int32_t * {aka long int *}'
+ int checkInt (int *B, int *A, int n)
+     ^~~~~~~~
+</system-err>
+		</testcase>
+	</testsuite>
+</testsuites>

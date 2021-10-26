@@ -1,0 +1,7 @@
+parallel_matmul_tests:
+  matmul_32b_int:
+    path: ./matmul_32b_int
+    command: make clean all compile
+  matmul_32b_float:
+    path: ./matmul_32b_float
+    command: make clean all compile
