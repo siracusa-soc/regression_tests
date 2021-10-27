@@ -34,12 +34,22 @@
 #include "inc/ne16_scale_shift.h"
 #include "inc/ne16_streamin.h"
 #include "inc/ne16_outfeat.h"
+// #include "inc/ne16_cfg2.h"
+// #include "inc/ne16_infeat2.h"
+// #include "inc/ne16_weights2.h"
+// #include "inc/ne16_scale2.h"
+// #include "inc/ne16_scale_bias2.h"
+// #include "inc/ne16_scale_shift2.h"
+// #include "inc/ne16_streamin2.h"
+// #include "inc/ne16_outfeat2.h"
 
 #define NB_ITER 10
 
 static int glob_errors;
 
-#define WEIGHT_MEM_MASE 0x10400000
+#define WEIGHT_MEM_BASE 0x10400000
+#define SRAM_OFFSET 0x00400000
+#define MRAM_OFFSET 0x00000000
 int run_test() {
 
   uint8_t* x        = ne16_infeat;
@@ -50,10 +60,23 @@ int run_test() {
   uint8_t* golden_y = ne16_outfeat;
   uint8_t* actual_y = ne16_streamin;
 
-  uint32_t* weight_start_ptr = WEIGHT_MEM_MASE; 
-  printf("Start copying weights to MRAM\n");
+  // uint8_t* x2        = ne16_infeat2;
+  // uint8_t* W2        = ne16_weights2;
+  // uint8_t* nq2       = ne16_scale2;
+  // uint8_t* nqs2      = ne16_scale_shift2;
+  // uint8_t* nqb2      = ne16_scale_bias2;
+  // uint8_t* golden_y2 = ne16_outfeat2;
+  // uint8_t* actual_y2 = ne16_streamin2;
+
+  uint32_t* weight_start_ptr = WEIGHT_MEM_BASE+MRAM_OFFSET; 
+  // printf("Start copying weights to MRAM\n");
   memcpy(weight_start_ptr,(uint32_t*)ne16_weights,sizeof(ne16_weights)); 
-  printf("Finished copying weights to MRAM\n");
+  // printf("Finished copying weights to MRAM\n");
+
+  // weight_start_ptr = WEIGHT_MEM_BASE+SRAM_OFFSET; 
+  // printf("Start copying weights to SRAM\n");
+  // memcpy(weight_start_ptr,(uint32_t*)ne16_weights2,sizeof(ne16_weights2)); 
+  // printf("Finished copying weights to SRAM\n");
   // enable clock
   NE16_CG_ENABLE();
 
@@ -65,9 +88,13 @@ int run_test() {
   // soft-clear NE16
   NE16_WRITE_CMD(NE16_SOFT_CLEAR, NE16_SOFT_CLEAR_ALL);
   for(volatile int kk=0; kk<10; kk++);
-
+  // int job_id = -1;
+  // NE16_BARRIER_ACQUIRE(job_id);
   // program NE16
-  NE16_WRITE_REG(NE16_REG_WEIGHTS_PTR,     NE16_REG_WEIGHTS_PTR);
+  int job_id = -1;
+  // job 0
+  NE16_BARRIER_ACQUIRE(job_id);
+  NE16_WRITE_REG(NE16_REG_WEIGHTS_PTR,     NE16_REG_WEIGHTS_PTR+MRAM_OFFSET);
   NE16_WRITE_REG(NE16_REG_INFEAT_PTR,      x);
   NE16_WRITE_REG(NE16_REG_OUTFEAT_PTR,     actual_y);
   NE16_WRITE_REG(NE16_REG_SCALE_PTR,       nq);
@@ -76,43 +103,34 @@ int run_test() {
   for(int i=6; i<24; i++) {
     NE16_WRITE_REG(i*4, ne16_cfg[i]);
   }
-
-  // configure & reset perf counters
-  // pi_perf_conf(1 << PI_PERF_CYCLES);
-  // pi_perf_reset();
-
-  // fake register access for trace level -- only GVSOC!
-  NE16_WRITE_REG(NE16_SPECIAL_TRACE_REG, NE16_L3_ALL);
-
-  // commit NE16 computation
   NE16_WRITE_CMD(NE16_COMMIT_AND_TRIGGER, NE16_TRIGGER_CMD);
-
-  // start perf counter
-  // pi_perf_start();
-
-  // wait on barrier
+  
+  // NE16_BARRIER_ACQUIRE(job_id);
+  // NE16_WRITE_REG(NE16_REG_WEIGHTS_PTR,     NE16_REG_WEIGHTS_PTR+SRAM_OFFSET);
+  // NE16_WRITE_REG(NE16_REG_INFEAT_PTR,      x2);
+  // NE16_WRITE_REG(NE16_REG_OUTFEAT_PTR,     actual_y2);
+  // NE16_WRITE_REG(NE16_REG_SCALE_PTR,       nq2);
+  // NE16_WRITE_REG(NE16_REG_SCALE_SHIFT_PTR, nqs2);
+  // NE16_WRITE_REG(NE16_REG_SCALE_BIAS_PTR,  nqb2);
+  // for(int i=6; i<24; i++) {
+  //   NE16_WRITE_REG(i*4, ne16_cfg2[i]);
+  // }
+  // NE16_WRITE_CMD(NE16_COMMIT_AND_TRIGGER, NE16_TRIGGER_CMD);
   NE16_BARRIER();
-
-  // stop perf counter
-  // pi_perf_stop();
-
-  // disable clock
   NE16_CG_DISABLE();
-
-  // printf("%d cycles\n", pi_perf_read(PI_PERF_CYCLES));
-
   int errors = ne16_compare_int(actual_y, golden_y, STIM_Y_SIZE/4);
+  // int errors = ne16_compare_int(actual_y2, golden_y2, STIM_Y_SIZE2/4);
   return errors;
 }
 
 int main() {
   
-  if (rt_cluster_id() != 0)
-    return bench_cluster_forward(0);
+  // if (rt_cluster_id() != 0)
+  //   return bench_cluster_forward(0);
 
-  int ret = -1;
-  if(rt_core_id() == 0) {
-    printf("HELLO\n");
+  // int ret = -1;
+  // if(rt_core_id() == 0) {
+    // printf("HELLO\n");
     return run_test();
-  }
+  // }
 }

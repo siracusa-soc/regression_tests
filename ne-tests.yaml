@@ -1,23 +1,52 @@
 ne_tests:
+  ki14_ko14_fs3_dw1_w6_h6_dw1_and_ki28_ko32_fs3_w6_h6:
+    path: ./ne_tests/ki14_ko14_fs3_dw1_w6_h6_dw1_and_ki28_ko32_fs3_w6_h6 #ok
+    command: questa-2019.3 make clean all run bootmode=fast_debug
+  ki32_ko32_w6_h6_fs3_and_ki32_ko32_w6_h6_dw1:
+    path: ./ne_tests/ki32_ko32_w6_h6_fs3_and_ki32_ko32_w6_h6_dw1
+    command: questa-2019.3 make clean all run bootmode=fast_debug
   ki1_ko1_w1_h1_fs3:
-    path: ./ne_tests/ki1_ko1_w1_h1_fs3 #ok
-    command: make clean all run bootmode=fast_debug
-  ki28_32_w6_h6_fs3:
-    path: ./ne_tests/ki28_32_w6_h6_fs3 #ok
-    command: make clean all run bootmode=fast_debug
+    path: ./ne_tests/ki1_ko1_w1_h1_fs3
+    command: questa-2019.3 make clean all run bootmode=fast_debug
+  ki1_ko1_w1_h1_fs3_l1:
+    path: ./ne_tests/ki1_ko1_w1_h1_fs3_l1
+    command: questa-2019.3 make clean all run bootmode=fast_debug
   ki1_ko1_w1_h1_fs3_repeated:
-    path: ./ne_tests/ki1_ko1_w1_h1_fs3_repeated #ok
-    command: make clean all run bootmode=fast_debug
+    path: ./ne_tests/ki1_ko1_w1_h1_fs3_repeated
+    command: questa-2019.3 make clean all run bootmode=fast_debug
+  ki28_32_w6_h6_fs3:
+    path: ./ne_tests/ki28_32_w6_h6_fs3
+    command: questa-2019.3 make clean all run bootmode=fast_debug
+  ki28_32_w6_h6_fs3_and_ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3:
+    path: ./ne_tests/ki28_32_w6_h6_fs3_and_ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3
+    command: questa-2019.3 make clean all run bootmode=fast_debug
+  ki28_32_w6_h6_fs3_and_ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3_mram_sram_simultaneous:
+    path: ./ne_tests/ki28_32_w6_h6_fs3_and_ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3_mram_sram_simultaneous
+    command: questa-2019.3 make clean all run bootmode=fast_debug
+  ki28_32_w6_h6_fs3_and_ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3_mram_sram_simultaneous_fast_buffer:
+    path: ./ne_tests/ki28_32_w6_h6_fs3_and_ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3_mram_sram_simultaneous_fast_buffer
+    command: questa-2019.3 make clean all run bootmode=fast_debug
+  ki32_32_w6_h6_fs3_and_ki14_ko14_w6_h6_dw1:
+    path: ./ne_tests/ki32_32_w6_h6_fs3_and_ki14_ko14_w6_h6_dw1
+    command: questa-2019.3 make clean all run bootmode=fast_debug
+  ki32_ko32_w6_h6_fs3_and_ki32_ko32_w6_h6_dw1:
+    path: ./ne_tests/ki32_ko32_w6_h6_fs3_and_ki32_ko32_w6_h6_dw1
+    command: questa-2019.3 make clean all run bootmode=fast_debug
   ki35_ko36_h7_w8_ns1_nb1_qw3_fs1_st0_repeated:
-    path: ./ne_tests/ki35_ko36_h7_w8_ns1_nb1_qw3_fs1_st0_repeated #ok
-    command: make clean all run bootmode=fast_debug
+    path: ./ne_tests/ki35_ko36_h7_w8_ns1_nb1_qw3_fs1_st0_repeated
+    command: questa-2019.3 make clean all run bootmode=fast_debug
+  ki35_ko36_h7_w8_ns1_nb1_qw3_fs1_st1:
+    path: ./ne_tests/ki35_ko36_h7_w8_ns1_nb1_qw3_fs1_st1
+    command: questa-2019.3 make clean all run bootmode=fast_debug
   ki36_ko36_h7_w9_ns1_nb1_qw3_fs3_dw1:
-    path: ./ne_tests/ki36_ko36_h7_w9_ns1_nb1_qw3_fs3_dw1 #ok
-    command: make clean all run bootmode=fast_debug
+    path: ./ne_tests/ki36_ko36_h7_w9_ns1_nb1_qw3_fs3_dw1
+    command: questa-2019.3 make clean all run bootmode=fast_debug
   ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3:
-    path: ./ne_tests/ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3 #ok
-    command: make clean all run bootmode=fast_debug
-  ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3_repeated:
-    path: ./ne_tests/ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3_repeated #ok
-    command: make clean all run bootmode=fast_debug
-    
+    path: ./ne_tests/ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3
+    command: questa-2019.3 make clean all run bootmode=fast_debug
+  ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3_and_ki28_k32_w6_h6_fs3_mram_sram_simultaneous_fast_buffer:
+    path: ./ne_tests/ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3_and_ki28_k32_w6_h6_fs3_mram_sram_simultaneous_fast_buffer
+    command: questa-2019.3 make clean all run bootmode=fast_debug
+  ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3:
+    path: ./ne_tests/ki36_ko_39_h7_w9_ns1_nb1_qw3_fs3
+    command: questa-2019.3 make clean all run bootmode=fast_debug
