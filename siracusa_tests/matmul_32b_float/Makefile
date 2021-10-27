@@ -20,11 +20,15 @@ DEFINE_GATE_SIM =
 endif
 PULP_APP = test
 PULP_APP_SRCS = test.c
-PULP_CFLAGS=-O3 $(DEFINE_FREQ) $(DEFINE_NB_RUN) $(DEFINE_VCD_DUMP) $(DEFINE_GATE_SIM)
+
+PULP_CFLAGS=-O3 $(DEFINE_FREQ) $(DEFINE_NB_RUN) $(DEFINE_VCD_DUMP) $(DEFINE_GATE_SIM) -g -DSKIP_PLL_INIT
 
 $(info Flags : $(PULP_CFLAGS))
 
+export uvm_tb = 1
+vsim_additional_flags=+UVM_TESTNAME=pulp_sw_backdoor_boot_test +UVM_VERBOSITY=UVM_LOW -optionset UVMDEBUG \
+	                    -suppress 8323 
 fc=0
 cluster=1
 
-include $(PULP_SDK_HOME)/install/rules/pulp.mk
+include $(PULP_SDK_HOME)/install/rules/pulp_rt.mk
