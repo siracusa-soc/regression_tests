@@ -1,6 +1,6 @@
 #define STIM_NQ_SIZE 512
 // scale [64]
-L1_DATA int32_t ne16_scale0[] = {
+L1_DATA int32_t ne16_scale_avgpool[] = {
   0x00000001,
   0x00000001,
   0x00000001,

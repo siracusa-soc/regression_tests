@@ -1,6 +1,6 @@
 // infeat [34 x 34 x 64]
 #define STIM_X_SIZE 73984
-L1_DATA uint8_t ne16_infeat0[] = {
+L1_DATA uint8_t ne16_infeat_avgpool[] = {
   0xfb,
   0xee,
   0x13,

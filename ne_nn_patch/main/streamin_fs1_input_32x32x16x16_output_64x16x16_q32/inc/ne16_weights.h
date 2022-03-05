@@ -1,6 +1,6 @@
 #define STIM_W_SIZE 2048
 // weights [64 x 1 x 8 x 4]
-uint8_t ne16_weights4[] = {
+L2_DATA uint8_t ne16_weights_streamin[] = {
   0xc6,
   0xd0,
   0xf9,

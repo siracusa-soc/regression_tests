@@ -1,6 +1,6 @@
 #define STIM_W_SIZE 4096
 // weights [64 x 2 x 8 x 4]
-uint8_t ne16_weights3[] = {
+L2_DATA uint8_t ne16_weights_no_normquant[] = {
   0x8a,
   0x84,
   0xb7,

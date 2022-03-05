@@ -1,4 +1,4 @@
-int32_t ne16_cfg3[] = {
+int32_t ne16_cfg_no_normquant[] = {
   0xffffffff,
   0xffffffff,
   0xffffffff,

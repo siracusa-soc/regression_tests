@@ -1,4 +1,4 @@
-int32_t ne16_cfg4[] = {
+int32_t ne16_cfg_streamin[] = {
   0xffffffff,
   0xffffffff,
   0xffffffff,

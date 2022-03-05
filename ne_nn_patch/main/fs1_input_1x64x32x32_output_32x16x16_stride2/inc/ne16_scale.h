@@ -1,6 +1,6 @@
 #define STIM_NQ_SIZE 64
 // scale [32]
-int8_t ne16_scale1[] = {
+L1_DATA int8_t ne16_scale_stride2[] = {
   0x21,
   0x24,
   0x1e,

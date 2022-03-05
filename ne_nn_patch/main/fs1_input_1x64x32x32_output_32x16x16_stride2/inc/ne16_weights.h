@@ -1,6 +1,6 @@
 #define STIM_W_SIZE 2048
 // weights [32 x 2 x 8 x 4]
-uint8_t ne16_weights1[] = {
+L2_DATA uint8_t ne16_weights_stride2[] = {
   0x8a,
   0x84,
   0xb7,

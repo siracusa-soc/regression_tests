@@ -1,6 +1,6 @@
 #define STIM_W_SIZE 16384
 // weights [32 x 2 x 8 x 3 x 3 x 4]
-L2_DATA uint8_t ne16_weights2[] = {
+L2_DATA uint8_t ne16_weights_padding[] = {
   0x19,
   0x5d,
   0x13,

@@ -1,6 +1,6 @@
 #define STIM_NQB_SIZE 512
 // scale_bias [64]
-L1_DATA int32_t ne16_scale_bias0[] = {
+L1_DATA int32_t ne16_scale_bias_avgpool[] = {
   0x00000000,
   0x00000000,
   0x00000000,

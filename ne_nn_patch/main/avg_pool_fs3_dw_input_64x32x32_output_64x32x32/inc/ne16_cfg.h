@@ -1,4 +1,4 @@
-int32_t ne16_cfg0[] = {
+int32_t ne16_cfg_avgpool[] = {
   0xffffffff,
   0xffffffff,
   0xffffffff,

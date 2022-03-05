@@ -1,6 +1,6 @@
 #define STIM_NQ_SIZE 256
 // scale [32]
-L1_DATA int32_t ne16_scale2[] = {
+L1_DATA int32_t ne16_scale_padding[] = {
   0x00019edb,
   0x00008761,
   0x00016e56,

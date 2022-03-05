@@ -1,6 +1,6 @@
 #define STIM_NQB_SIZE 256
 // scale_bias [32]
-L1_DATA int32_t ne16_scale_bias2[] = {
+L1_DATA int32_t ne16_scale_bias_padding[] = {
   0x00ea232b,
   0xfa6d7108,
   0xff226460,

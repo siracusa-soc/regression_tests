@@ -1,6 +1,6 @@
 #define STIM_NQS_SIZE 32
 // scale_shift [32]
-int8_t ne16_scale_shift1[] = {
+L1_DATA int8_t ne16_scale_shift_stride2[] = {
   0x05,
   0x06,
   0x06,

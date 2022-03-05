@@ -1,6 +1,6 @@
 #define STIM_NQ_SIZE 128
 // scale [64]
-int8_t ne16_scale4[] = {
+L1_DATA int8_t ne16_scale_streamin[] = {
   0x05,
   0x12,
   0x34,
