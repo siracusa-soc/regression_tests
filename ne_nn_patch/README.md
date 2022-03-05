@@ -83,3 +83,11 @@ The accelerator should start fetching the data from the actual infeature locatio
 ```
 make build-sw sim gui=1 AVG_POOL=0 NEGATIVE_WEIGHT=0 K_IN=32 K_OUT=32 H_OUT=16 W_OUT=16 FS=3 QW=8 NO_NORM_QUANT=0 NORM_BITS=8 QUANT_BITS=8 NORM_SHIFT=1 NORM_BIAS=1 USE_ROUNDING=0 USE_RELU=0 PADDING_TOP=1 PADDING_RIGHT=3 PADDING_BOTTOM=3 PADDING_LEFT=1 PADDING_VALUE=0 STREAMIN=0 FILTER_MASK_TOP=0 FILTER_MASK_RIGHT=0 FILTER_MASK_BOTTOM=0 FILTER_MASK_LEFT=0 DEPTHWISE=0 MODE16=0 MODE_LINEAR=0 WEIGHT_DEMUX=1 ACTIVATION_PREFETCH=1 SIGNED_ACTIVATION=1 STRIDE=1 FEATURE_FROM_FILE=1
 ```
+## Pointwise mode
+### Input Dimension 32x16x16
+### Output Dimension 64x16x16
+This convolution is clubbed with the addition from the pointwise mode with output 64x16x16. Thus, the output of the pointwise layer is fed as the STREAMIN to this layer. The conent of the ne16_outfeat.h of 3x3 convolution is copied to the feature_streamin.hpp of the golden model. This uses the streamin from the file reather generating random stimuli. Additionally, the input is fed from the output of the 3x3 convolution. Thus, the ne16_outfeat.h is copied to the feature.hpp.
+The simulation is done using 
+```
+make stimuli build-sw sim gui=1 AVG_POOL=0 NEGATIVE_WEIGHT=0 K_IN=32 K_OUT=64 H_OUT=16 W_OUT=16 FS=1 QW=8 NO_NORM_QUANT=0 NORM_BITS=32 QUANT_BITS=32 NORM_SHIFT=1 NORM_BIAS=1 USE_ROUNDING=0 USE_RELU=0 PADDING_TOP=0 PADDING_RIGHT=0 PADDING_BOTTOM=0 PADDING_LEFT=0 PADDING_VALUE=0 STREAMIN=1 FILTER_MASK_TOP=0 FILTER_MASK_RIGHT=0 FILTER_MASK_BOTTOM=0 FILTER_MASK_LEFT=0 DEPTHWISE=0 MODE16=0 MODE_LINEAR=0 WEIGHT_DEMUX=1 ACTIVATION_PREFETCH=1 SIGNED_ACTIVATION=1 STRIDE=1 FEATURE_FROM_FILE=1
+```
