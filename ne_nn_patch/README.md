@@ -22,3 +22,11 @@ Additionally, the infeat.d1_stride needs to be modified from 64*34 to 64*32. Sim
 ```
 make build-sw sim gui=1 AVG_POOL=1 NEGATIVE_WEIGHT=0 K_IN=64 K_OUT=64 H_OUT=32 W_OUT=32 FS=3 QW=2 NO_NORM_QUANT=0 NORM_BITS=8 QUANT_BITS=8 NORM_SHIFT=1 NORM_BIAS=0 USE_ROUNDING=0 USE_RELU=0 PADDING_TOP=0 PADDING_RIGHT=6 PADDING_BOTTOM=6 PADDING_LEFT=0 PADDING_VALUE=0 STREAMIN=0 FILTER_MASK_TOP=0 FILTER_MASK_RIGHT=1 FILTER_MASK_BOTTOM=1 FILTER_MASK_LEFT=0 DEPTHWISE=1 MODE16=0 MODE_LINEAR=0 WEIGHT_DEMUX=1 ACTIVATION_PREFETCH=1 SIGNED_ACTIVATION=1 STRIDE=1 FEATURE_FROM_FILE=0
 ```
+## Pointwise Convolution
+### Input Dimension 64x32x32
+### Output Dimension 32x16x16
+Here a stride of 2 is used to reduce the size of the feature map. 
+The golden model is used as it is. There is a support for stride=2 is added. The input is same as the input used for the averagepool. There is an additional support in the golden model to use the feature from a header file "feature.hpp". The content of ne16_infeat.h generated in the averagepool is copied to feature.hpp file. Then the golden model is build. The stimuli generation and simulation is performed using 
+```
+make stimuli build-sw sim gui=1 AVG_POOL=0 NEGATIVE_WEIGHT=0 K_IN=64 K_OUT=32 H_OUT=16 W_OUT=16 FS=1 QW=8 NO_NORM_QUANT=0 NORM_BITS=8 QUANT_BITS=8 NORM_SHIFT=1 NORM_BIAS=1 USE_ROUNDING=0 USE_RELU=0 PADDING_TOP=0 PADDING_RIGHT=0 PADDING_BOTTOM=0 PADDING_LEFT=0 PADDING_VALUE=0 STREAMIN=0 FILTER_MASK_TOP=0 FILTER_MASK_RIGHT=0 FILTER_MASK_BOTTOM=0 FILTER_MASK_LEFT=0 DEPTHWISE=0 MODE16=0 MODE_LINEAR=0 WEIGHT_DEMUX=1 ACTIVATION_PREFETCH=1 SIGNED_ACTIVATION=1 STRIDE=2 FEATURE_FROM_FILE=1
+```
