@@ -68,7 +68,7 @@ int main()
     pulp_write32(ARCHI_UDMA_ADDR + CAM_BASE_ADDR + UDMA_CPI_CAM_CFG_SIZE_OFFSET, FRAME_LINES);
 
     // consider replacing with proper interrupt based wait
-    for (volatile int i = 0; i < 5000; ++i)
+    for (volatile int i = 0; i < 40000; ++i)
     {
       i++;
     }
@@ -155,5 +155,5 @@ int main()
   // }
   // if(error!=0) pass=0;
 
-  return 0;
+  return error ;
 }
